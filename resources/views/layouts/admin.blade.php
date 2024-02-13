@@ -59,8 +59,8 @@
             x-data="{ open: false }">
             <div class="flex flex-row items-center justify-between flex-shrink-0 px-8 py-4">
                 <a href="#"
-                    class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">Flowtrail
-                    UI</a>
+                    class="text-lg font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark:text-white focus:outline-none focus:shadow-outline">MonGrandTaxi
+                    </a>
                 <button class="rounded-lg md:hidden focus:outline-none focus:shadow-outline" @click="open = !open">
                     <svg fill="currentColor" viewBox="0 0 20 20" class="w-6 h-6">
                         <path x-show="!open" fill-rule="evenodd"
@@ -76,8 +76,8 @@
                 class="flex-grow px-4 pb-4 md:block md:pb-0 md:overflow-y-auto">
                 <x-admin-link :href="route('admin.roles.index')" :active="request()->routeIs('admin.roles.index')">Roles
                 </x-admin-link>
-                <x-admin-link :href="route('admin.permissions.index')"
-                    :active="request()->routeIs('admin.permissions.index')">Permissions</x-admin-link>
+                {{-- <x-admin-link :href="route('admin.permissions.index')"
+                    :active="request()->routeIs('admin.permissions.index')">Permissions</x-admin-link> --}}
                 <x-admin-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.index')">Users
                 </x-admin-link>
                 <div @click.away="open = false" class="relative" x-data="{ open: false }">
