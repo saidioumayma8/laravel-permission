@@ -10,7 +10,7 @@
         <!-- Validation Errors -->
         <x-auth-validation-errors class="mb-4" :errors="$errors" />
 
-        <form method="POST" action="{{ route('register') }}">
+        <form method="POST" action="{{ route('add ') }}">
             @csrf
 
             <!-- Name -->
@@ -53,9 +53,6 @@
 
                 <x-button class="ml-4">
                     {{ __('Register') }}
-                </x-button>
-                <x-button class="underline text-sm text-gray-600 hover:text-gray-900" href="{{ route('driver') }}">
-                    {{ __('Driver') }}
                 </x-button>
             </div>
         </form>

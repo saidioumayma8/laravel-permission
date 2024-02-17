@@ -17,23 +17,16 @@ return new class extends Migration
             $table->id();
             $table->foreignId('startcity_id')
                   ->constrained('cities')
-                  ->foreignId('cascade')
-                  ->foreignId('cascade_');
-
+                  ->onDelete('cascade');
 
             $table->foreignId('endcity_id')
                   ->constrained('cities')
-                  ->foreignId('cascade')
-                  ->foreignId('cascade_');
+                  ->onDelete('cascade');
 
-
-            $table->unique(['startcity_id', 'encity_id']);
+            $table->unique(['startcity_id', 'endcity_id']);
             $table->integer('distance');
             $table->time('duration');
             $table->softDeletes();
-            
-
-
             $table->timestamps();
         });
     }

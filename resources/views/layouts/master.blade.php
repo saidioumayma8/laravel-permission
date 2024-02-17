@@ -156,23 +156,36 @@
                             <div class="uk-grid uk-grid-medium uk-child-width-1-2@s uk-child-width-1-3@m" data-uk-grid>
 
                                 <div>
-                                    <div class="driver-card">
-                                        {{-- <div class="driver-card__media"><img src="assets/img/car-4.jpg" alt="car"></div> --}}
-                                        <div class="driver-card__body">
-                                            <div class="driver-card__user"> <img src="assets/img/driver-1.png" alt="driver-pic"><span>Ben Strokes</span></div>
-                                            <div class="driver-card__info">
-                                                <div class="driver-card__date">Wed, 8 January<br> at 2:00 PM</div>
-                                                <div class="driver-card__price">For 1 Passenger <b>$19.50</b></div>
+                                @foreach($routes as $route)
+                                <div class="driver-card">
+                                    <div class="driver-card__body">
+                                        <div class="driver-card__user">
+                                            <img src="{{ asset('assets/img/driver-1.png') }}" alt="driver-pic">
+                                            <span>{{ $route->driver_name }}</span> 
+                                        </div>
+
+                                        <div class="driver-card__info">
+                                            <div class="driver-card__date">
+                                                {{ $route->date }}
+                                                <br> at {{ $route->time }}
                                             </div>
-                                            <div class="driver-card__services">
-                                                <ul>
-                                                    <li><img src="assets/img/driver-service-1.png" alt="driver-service"><span>Max. 2 passengers in back seats</span></li>
-                                                    <li><img src="assets/img/driver-service-2.png" alt="driver-service"><span>Pets are not allowed in the Car</span></li>
-                                                    <li><img src="assets/img/driver-service-3.png" alt="driver-service"><span>Smoking is not allowed</span></li>
-                                                </ul>
+                                            <div class="driver-card__price">
+                                                For {{ $route->passenger_count }} Passenger <b>${{ $route->price }}</b>
                                             </div>
                                         </div>
+
+                                        <div class="driver-card__services">
+                                            <ul>
+                                                <li><img src="{{ asset('assets/img/driver-service-1.png') }}" alt="driver-service"><span>Max. {{ $route->max_passengers }} passengers in back seats</span></li>
+                                                <li><img src="{{ asset('assets/img/driver-service-2.png') }}" alt="driver-service"><span>{{ $route->pets_allowed ? 'Pets are allowed in the Car' : 'Pets are not allowed in the Car' }}</span></li>
+                                                <li><img src="{{ asset('assets/img/driver-service-3.png') }}" alt="driver-service"><span>{{ $route->smoking_allowed ? 'Smoking is allowed' : 'Smoking is not allowed' }}</span></li>
+                                            </ul>
+                                        </div>
                                     </div>
+                                </div>
+                                @endforeach
+
+
                                 </div>
                                 <div>
                                     <div class="driver-card">
